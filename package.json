@@ -8,8 +8,9 @@
     "install:frontend": "cd frontend && npm i",
     "install:all": "npm-run-all -p install:backend install:frontend",
     "start:backend": "cd backend && npm run start",
+    "debug:backend": "cd backend && npm run debug",
     "start:frontend": "cd frontend && npm run start",
-    "start:all": "npm-run-all -p start:backend start:frontend",
+    "start:all": "npm-run-all -p debug:backend start:frontend",
     "start": "npm i && npm-run-all -s install:all start:all "
   },
   "keywords": [],
