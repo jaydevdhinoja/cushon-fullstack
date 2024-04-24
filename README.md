@@ -29,3 +29,67 @@ You can check if you have Node and npm installed by running:
 node --version
 npm --version
 ```
+
+### Installation
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/jaydevdhinoja/cushon-fullstack.git
+cd cushon-fullstack
+```
+
+**Setting up the Backend**
+Navigate to the backend directory and install the necessary dependencies:
+
+```bash
+cd backend
+npm install
+```
+
+Start the backend server:
+
+```bash
+npm run start:backend
+
+or
+cd backend
+npm run debug
+```
+
+### Setting up the Frontend
+
+Navigate to the frontend directory from the project root:
+
+```bash
+cd frontend
+npm install
+```
+
+Start the frontend server:
+
+```bash
+npm run start:frontend
+
+or
+cd frontend
+npm run start
+```
+
+### Start both Backend and Frontend same time
+
+Navigate to root directory and run the following command:
+
+```bash
+npm run start
+```
+
+This will install all the dependencies in both backend and frontend and start backend server with default **3001** PORT and frontend with default **http://localhost:3000** url
+
+### Usage
+
+After starting both the frontend and backend, navigate to http://localhost:3000 in your web browser to use the application.
+
+## License
+
+This project is licensed under the MIT License.
