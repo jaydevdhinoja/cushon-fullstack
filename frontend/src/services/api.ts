@@ -1,11 +1,8 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:3001";
+const baseURL = process.env.REACT_APP_API_URL;
 
-export const getFunds = () => {
-  return axios.get(`${baseURL}/funds`);
-};
-
-export const postInvestment = (fundId: number, amount: number) => {
-  return axios.post(`${baseURL}/invest`, { fundId, amount });
-};
+export const getFunds = () => axios.get(`${baseURL}/funds`);
+export const getInvestments = () => axios.get(`${baseURL}/investments`);
+export const postInvestment = (fundId: number, amount: number) =>
+  axios.post(`${baseURL}/invest`, { fundId, amount });

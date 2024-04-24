@@ -1,0 +1,92 @@
+$primary-color: #4caf50;
+$secondary-color: #333;
+$background-color: #f4f4f4;
+$button-color: #4caf50;
+$button-hover-color: darken($button-color, 10%);
+$text-color: #333;
+$input-background: #fff;
+$input-border: #ccc;
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+.app {
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 20px;
+  background-color: #fff;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid $input-border;
+  &:hover {
+    border-color: darken($input-border, 10%);
+  }
+}
+
+button,
+input[type="submit"] {
+  background-color: $button-color;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+form {
+  background: $input-background;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  label {
+    display: block;
+    margin: 20px 0 10px;
+  }
+
+  input[type="number"],
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid $input-border;
+    border-radius: 4px;
+  }
+}
+
+h2 {
+  color: $secondary-color;
+}

@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import FundsList from "./components/FundsList";
+import InvestForm from "./components/InvestForm";
+import InvestmentList from "./components/InvestmentList";
+import { Investment } from "./interface/Investment";
+import { getInvestments } from "./services/api";
+import "./styles/main.scss";
 
-function App() {
+const App: React.FC = () => {
+  const [selectedFund, setSelectedFund] = useState(null);
+  const [investments, setInvestments] = useState<Investment[]>([]);
+
+  //get existing investments
+  useEffect(() => {
+    getInvestments()
+      .then((response) => {
+        setInvestments(response.data);
+      })
+      .catch((error) => console.error("Error fetching investments:", error));
+  }, []);
+
+  // add the new investment to the existing state
+  const addInvestment = (investment: Investment) => {
+    setInvestments((prevInvestments) => [...prevInvestments, investment]);
+  };
+
+  const handleSelectFund = (fund: any) => {
+    setSelectedFund(fund);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="container">
+        <FundsList onSelectFund={handleSelectFund} />
+        {selectedFund && (
+          <InvestForm selectedFund={selectedFund} onInvest={addInvestment} />
+        )}
+        <InvestmentList investments={investments} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
